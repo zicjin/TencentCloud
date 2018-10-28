@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup>
+    <RootNamespace>TencentCloud</RootNamespace>
+    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+    <ProjectGuid>{423CA746-9292-4983-8EFD-3A0B2F167221}</ProjectGuid>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <VersionPrefix>3.0.0</VersionPrefix>
+    <Description>Tencent Cloud API 3.0 SDK for .NET</Description>
+    <PackageLicenseUrl>https://github.com/TencentCloud/tencentcloud-sdk-dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <Authors>Tencent Cloud API Team</Authors>
+    <Company>Tencent Ltd.</Company>
+    <Product />
+    <PackageId>TencentCloudSDK</PackageId>
+    <PackageProjectUrl>https://github.com/TencentCloud/tencentcloud-sdk-dotnet</PackageProjectUrl>
+    <PackageIconUrl>https://avatars3.githubusercontent.com/u/20101770</PackageIconUrl>
+    <Copyright>Copyright @2018 Tencent Ltd.</Copyright>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>Full</DebugType>
+    <NoWarn>1702;1705;1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <DefineConstants>NS2</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+    <PackageReference Include="Pathoschild.Http.FluentClient" Version="3.2.0" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="4.4.0" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System.Net.Http" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+    <PackageReference Include="Pathoschild.Http.FluentClient" Version="3.2.0" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="4.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AbstractClient.cs" />
+    <Compile Include="Common\AbstractModel.cs" />
+    <Compile Include="Common\Credential.cs" />
+    <Compile Include="Common\Exception\TencentCloudSDKException.cs" />
+    <Compile Include="Common\Http\HttpConnection.cs" />
+    <Compile Include="Common\JsonResponseErrModel.cs" />
+    <Compile Include="Common\JsonResponseModel.cs" />
+    <Compile Include="Common\Profile\ClientProfile.cs" />
+    <Compile Include="Common\Profile\HttpProfile.cs" />
+    <Compile Include="Common\Sign.cs" />
+    <Compile Include="Tmt\V20180321\TmtClient.cs" />
+    <Compile Include="Tmt\V20180321\Models\ImageTranslateResponse.cs" />
+    <Compile Include="Tmt\V20180321\Models\SpeechTranslateResponse.cs" />
+    <Compile Include="Tmt\V20180321\Models\ImageRecord.cs" />
+    <Compile Include="Tmt\V20180321\Models\LanguageDetectRequest.cs" />
+    <Compile Include="Tmt\V20180321\Models\LanguageDetectResponse.cs" />
+    <Compile Include="Tmt\V20180321\Models\ItemValue.cs" />
+    <Compile Include="Tmt\V20180321\Models\TextTranslateResponse.cs" />
+    <Compile Include="Tmt\V20180321\Models\SpeechTranslateRequest.cs" />
+    <Compile Include="Tmt\V20180321\Models\ImageTranslateRequest.cs" />
+    <Compile Include="Tmt\V20180321\Models\TextTranslateRequest.cs" />
+  </ItemGroup>
+</Project>
